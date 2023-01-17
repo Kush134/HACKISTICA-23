@@ -1,0 +1,239 @@
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insightly</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link href="../static/css/style.css" rel="stylesheet" type="text/css" />
+  <script src="../static/js/tf_jax_jsCoreV2.js"> </script>
+  <script src="../static/js/tf_answerModule_JAXexport.js"> </script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"> </script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/qna"> </script>
+</head>
+
+<body style="background-color:#FAFAFA">
+  <div class="p-3 px-md-4 mb-3 border-bottom shadow-sm" id="navbar">
+    <div class="container d-flex flex-column flex-md-row align-items-center">
+      <h5 class="my-0 mr-md-auto font-weight-normal text-light"><a class="text-light" href="/">Insightly</a></h5>
+      <nav class="my-2 my-md-0 mr-md-3">
+        <a class="p-2 text-light" href="http://127.0.0.1:5000/">Home</a>
+        <a class="p-2 text-light" href="http://127.0.0.1:5000/uploadPage">Upload</a>
+        <!-- <a class="p-2 text-light" href="http://127.0.0.1:5000/summaryPage">Summary</a> -->
+        <a class="p-2 text-light" href="http://127.0.0.1:5000/signUpPage">Sign Up</a>
+        
+      </nav>
+      
+    </div>
+  </div>
+
+  <main>
+    <div class = "row">
+      <div class="column">
+     <div style class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">ORIGINAL DOCUMENT</h5>
+                
+                
+                <p><b><h6 style="padding-top: 10px;">Abstract</h6></b>This paper introduces <a href="#">STEM</a> and <a href="#">LAMB</a>, embeddings trained for stems and lemmata instead of for surface forms. For morphologically rich languages, they perform significantly better than standard embeddings on
+                  word similarity and polarity evaluations. On
+                  a new <a href="#">WordNet</a>-based evaluation, STEM and
+                  LAMB are up to 50% better than standard embeddings. We show that both embeddings
+                  have high quality even for small dimensionality and <a href="#">training corpora</a>.
+                  <h6 style="padding-top: 10px;"><b>Introduction</b></h6>
+                  
+                  Despite their power and prevalence, <a href="#">embeddings</a>,
+                  i.e., (low-dimensional) word representations in vector space, have serious practical problems. First,
+                  large text corpora are necessary to train high-quality
+                  embeddings. Such corpora are not available for underresourced languages. Second, morphologically
+                  rich languages (MRLs) are a challenge for standard embedding models because many inflectional
+                  forms are rare or absent even in a large <a href="http://127.0.0.1:5000/definition1">corpus</a>. For
+                  example, a Spanish verb has more than 50 forms,
+                  many of which are rarely used. This leads to missing or low quality embeddings for such inflectional
+                  forms, even for otherwise frequent verbs, i.e., sparsity is a problem. Therefore, we propose to compute normalized embeddings instead of embeddings
+                  for surface/inflectional forms (referred to as forms
+                  throughout the rest of the paper): <a href="#">STem EMbeddings</a> (STEM) for word stems and LemmA eMBeddings (LAMB) for lemmata.
+                  Stemming is a heuristic approach to reducing
+                  form-related sparsity issues. Based on simple rules,
+                  forms are converted into their stem.1 However, often
+                  the forms of one word are converted into several different stems. For example, present indicative forms
+                  of the German verb “brechen” (to break) are mapped
+                  to four different stems (“brech”, “brich”, “bricht”,
+                  “brecht”). A more principled solution is <a href="http://127.0.0.1:5000/definition2">lemmatization</a>. Lemmatization unites many individual forms,
+                  many of which are rare, in one equivalence class,
+                  represented by a single lemma. Stems and equivalence classes are more frequent than each individual
+                  form. As we will show, this successfully addresses
+                  the sparsity issue.
+                  
+                  
+                  Both methods can learn high-quality semantic
+                  representations for rare forms and thus are most beneficial for <a href="#">MRLs</a> as we show below. Moreover, less
+                  training data is required to train lemma embeddings
+                  of the same quality as form embeddings. Alternatively, we can train lemma embeddings that have the
+                  same quality but fewer dimensions than form embeddings, resulting in more efficient applications.
+                  If an application such as parsing requires inflectional information, then stem and <a href="#">lemma</a> embeddings may not be a good choice since they
+                  do not contain such information. 
+                  
+                  However, NLP
+                  applications such as similarity benchmarks (e.g.,
+                  MEN (Bruni et al., 2014)) and (as we show below)
+                  polarity classification are semantic and are largely independent of <a href="#">inflectional morphology</a>. Our contributions are the following. (i) We introduce the normalized embeddings STEM and LAMB
+                  and show their usefulness on different tasks for five
+                  languages. 
+                  <h6 style="padding-top: 10px;"><b>Conclusion</b></h6>
+                  This paper is the first study that comprehensively compares <a href="#">stem/lemma-based</a> with formbased embeddings for MRLs. (ii) We show the advantage of normalization on word similarity benchmarks. Normalized embeddings yield better performance for MRL languages on most datasets (6 out
+                  of 7 datasets for German and 2 out of 2 datasets for
+                  Spanish). (iii) We propose a new intrinsic relatedness evaluation based on WordNet graphs and publish datasets for five languages. On this new evaluation, LAMB outperforms form-based baselines by a
+                  big margin. (iv) STEM and LAMB outperform baselines on polarity classification for <a href="#">Czech</a> and English. (v) We show that LAMB embeddings are efficient in that they are high-quality for small training
+                  corpora and small dimensionalities.
+                  
+              We have presented STEM and LAMB, embeddings
+based on stems and lemmata. In three experiments
+we have shown the superiority compared to commonly used form embeddings. Especially (but not
+only) on MRLs, where data sparsity is a problem,
+both normalized embeddings perform better than
+form embeddings by a large margin. In a new challenging <a href="#">WordNet-based</a> experiment we have shown
+four methods of adding morphological information
+                  
+                  
+                  </p>
+                <span id="answer6" class="text-muted"></span>
+            </div>
+        </div>
+      </div>
+
+    
+
+      <div class="column">
+
+        {% if summary %}
+        <div style class="card mb-3">
+          <div class="card-body">
+              <h5 class="card-title">TL;DR SUMMARY</h5>
+              <br>
+              <p>
+                {{ summary }}
+              </p>
+              <span id="answer5" class="text-muted"></span>
+          </div>
+      </div>
+      {% endif %}
+
+
+
+      {% if title %}
+      <div style class="card mb-3">
+        <div class="card-body">
+            <h5 class="card-title" style="color: blue;">{{ title }} - (Definition)</h5>
+            <br>
+            <p>
+              {{ content }}
+            </p>
+            <span id="answer3" class="text-muted"></span>
+        </div>
+    </div>
+    {% endif %}
+
+    {% if title2 %}
+      <div style class="card mb-3">
+        <div class="card-body">
+            <h5 class="card-title" style="color: blue;">{{ title2 }} - (Definition)</h5>
+            <br>
+            <p>
+              {{ content2 }}
+            </p>
+            <span id="answer3" class="text-muted"></span>
+        </div>
+    </div>
+    {% endif %}
+
+    <div style class="card mb-3">
+      <div class="card-body">
+          <h5 class="card-title" style="display:inline">SUMMARIZE</h5> 
+          
+          <button onclick="window.location.href = 'getSummary';" type="button" style = "border-radius: 15px; float: right;">Full Paper</button> 
+          <br> <br>  
+
+          <textarea id="inp" class="form-control" placeholder="Enter Text ..." style="border-radius: 15px;"></textarea> 
+          <br> 
+          <button class="submit" id="button" style = "border-radius: 15px; margin-bottom: 20px;">Summarize</button>           
+          
+          <div class="msg_board"></div>
+          <!-- <span id="answer" class="text-muted"></span> -->
+      </div>
+  </div>
+
+
+      </div>
+
+      <div class="column">
+ <div class="form">
+
+        <div class="card mb-3">
+          <div class="card-body">
+            <h5 class="card-title" style="display:inline">ASK ME</h5> 
+            <br><br>
+            <div class="input-group mb-3 mt-3" >
+                <input type="text" class="inppx form-control" placeholder="Enter your question ..." id="question" style="border-radius: 20px;">
+                <button id="button" onclick="window.location.href = 'question';" class="submitz" style="border-radius: 20px; margin-left: 5px;">
+                    Submit
+                </button>
+            </div>
+        </div>
+      </div>
+
+            <!-- <div class="card mb-3">
+              <div class="card-body">
+                  <h5 class="card-title">ANSWER</h5>
+                  <span id="answer" class="text-muted"></span>
+              </div>
+            </div>
+               -->
+        </div>
+        
+        {% for question,answer in question_answers %}
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Question</h5>
+                <p>{{question}}</p>
+                
+                <h5 class="card-title">Answer</h5>
+                <p> {{answer}}</p>
+                <span id="answer1" class="text-muted"></span>
+            </div>
+        </div>
+        {% endfor %}
+
+      </div>
+
+
+    </div>
+
+    <h1 style="padding-left: 30px; padding-top: 50px; text-align: center;">SIMILAR PAPERS</h1>
+
+    <br><br>
+    <div class="row-card">
+      {% for link in links%}
+        <div class="column-card">
+          <div class="search-card"><iframe width="500" height="700" src={{link}}  frameborder="0"  allowfullscreen></iframe></div>
+        </div>
+      {% endfor %}
+    </div>
+    <br><br><br>
+
+
+    <br>
+  </div>
+  </main>
+  <footer class="footer">
+    <div class="container">
+      <p class="float-right">
+        <a style="color: #00008B;" href="#">Back to top</a>
+      </p>
+      <p>&copy; 2022 Insightly. All Rights Reserved.</p>
+      
+    </div>
+  </footer>
+
+  <script src="../static/js/jax_pytorchOut_core.js"></script>
+  <script src="../static/js/jax_AnswerQ_Out_core.js"></script>
+</body>

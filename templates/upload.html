@@ -1,0 +1,103 @@
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insightly</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link href="../static/css/style.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body style="background-color:#FAFAFA">
+  <div class="p-3 px-md-4 mb-3 border-bottom shadow-sm" id="navbar">
+    <div class="container d-flex flex-column flex-md-row align-items-center">
+      <h5 class="my-0 mr-md-auto font-weight-normal text-light"><a class="text-light" href="/">Insightly</a></h5>
+      <nav class="my-2 my-md-0 mr-md-3">
+        <a class="p-2 text-light" href="http://127.0.0.1:5000/">Home</a>
+        <a class="p-2 text-light" href="http://127.0.0.1:5000/uploadPage">Upload</a>
+        <!-- <a class="p-2 text-light" href="http://127.0.0.1:5000/summaryPage">Summary</a> -->
+        <a class="p-2 text-light" href="http://127.0.0.1:5000/signUpPage">Sign Up</a>
+        
+      </nav>
+      
+    </div>
+  </div>
+
+  <main>
+    <div class="container">
+        <div class="row">
+          <div class="col">
+            <h1 class="display-4">Upload Research Paper</h1>
+            <p class="lead p-2">Click the button if you want to upload your own research paper
+            <form action="/upload" method="POST" enctype="multipart/form-data">
+        <label for="input_file"></label><br/>
+        <input type="file" id="input_file" name="input_file">
+        <p class="py-2">Drag your files here or click in this area.</p>
+        <br> <button onclick="window.location.href = 'searchPapers';" id="fullbtn" type="button">Upload</button>
+      </form>
+          </div>
+           <div class="col-lg-5 order-1 order-lg-2 feat-img" data-aos="zoom-out">
+          <img src="../static/images/feat-img.svg" class="img-fluid mb-3 mb-lg-0" alt="200">
+  
+             
+             
+        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container p-4">
+      <h1 class="display-4">Search for Research Papers</h1>
+      <p class="lead p-2">Use the search bar to look for research papers online
+      <form role="search" id="form">
+  <input type="search" id="query" name="q"
+   placeholder="Search..."
+   aria-label="Search through site content" style = "width: 600px;">
+  <button onclick="window.location.href = 'searchPapers';" type="button"><i class="fa fa-search" style="font-size: 1.4em;"></i></button>
+</form>
+
+<br> <br>
+
+<div class="row-card">
+  {% for link in links1%}
+  <a href="http://127.0.0.1:5000/paperResults">
+    <div class="column-card">
+      <div class="search-card"><iframe width="320" height="475" src={{link}}  frameborder="0"  allowfullscreen></iframe></div>
+    </div>
+  </a>
+  {% endfor %}
+
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+  {% for link in links2%}
+  <a href="http://127.0.0.1:5000/paperResults"></a>
+    <div class="column-card">
+      <div class="search-card"><iframe width="320" height="475" src={{link}} frameborder="0"  allowfullscreen></iframe></div>
+    </div>
+  </a>
+  {% endfor %}
+ 
+</div>
+        
+       
+      <br>
+        
+      </div>
+    </div>
+  
+    
+    
+      </div>
+    </div>
+    
+  </main>
+  <footer class="footer">
+    <div class="container">
+      <p class="float-right">
+        <a style="color: #00008B;" href="#">Back to top</a>
+      </p>
+      <p>&copy; 2022 Insightly. All Rights Reserved.</p>
+      
+    </div>
+  </footer>
+</body>
